@@ -9,10 +9,9 @@
 
 	<body>
 
-		<h2>Try it in your browser!</h2>
+		<h2>SVG-плейсхолдеры!</h2>
 		<form>
-			<h3>Pick an image file</h3>
-			<ul>
+			<ul style="display: none;">
 				<li>From your computer: <input type="file" /></li>
 				<li>From URL (must be <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image">CORS-enabled</a>): <input type="url" name="url" /></li>
 			</ul>
@@ -30,43 +29,42 @@
 				<label><input type="checkbox" name="shapeType" value="ellipse" />Ellipses</label><br/>
 				<label><input type="checkbox" name="shapeType" value="smiley" />Smileys</label>
 			</div>
-			<div>
+			<div style="display: none;">
 				<p>Fill background with:</p>
 				<label><input type="radio" name="fill" value="auto" checked="checked" />an auto-detected color</label><br/>
 				<label><input type="radio" name="fill" value="fixed" />a fixed color: </label>
 				<input type="color" value="#ffffff" name="fill-color" />
 			</div>
-			<div>
+			<div style="display: none;">
 				<p>Starting opacity: <span class="value"></span></p>
 				<input name="alpha" type="range" min="0" max="1" step="0.1" value="0.5" /><br/>
 				<label><input type="checkbox" name="mutateAlpha" checked="checked" />Adjust opacity automatically</label>
 			</div>
-			<div>
+			<div style="display: none;">
 				<p>Computation size: <span class="value"></span> pixels
 					<em>(smaller is faster)</em>
 				</p>
-				<input name="computeSize" type="range" min="128" max="512" value="256" /><br/>
+				<input name="computeSize" type="range" min="128" max="512" value="512" /><br/>
 			</div>
-			<div>
+			<div style="display: none;">
 				<p>Viewing size: <span class="value"></span> pixels</p>
-				<input name="viewSize" type="range" min="256" max="2048" value="512" />
+				<input name="viewSize" type="range" min="256" max="2048" value="1024" />
 			</div>
-			<div>
+			<div style="display: none;">
 				<p>Start every iteration with <span class="value"></span> random shapes
 					<em>(larger number: more precise results, slower)</em>
 				</p>
-				<input name="shapes" type="range" min="1" max="1000" value="200" />
+				<input name="shapes" type="range" min="1" max="1000" value="300" />
 			</div>
-			<div>
+			<div style="display: none;">
 				<p>Stop shape optimization after <span class="value"></span> failures
 					<em>(larger number: more precise results, slower)</em>
 				</p>
-				<input name="mutations" type="range" min="0" max="100" value="30" />
+				<input name="mutations" type="range" min="0" max="100" value="45" />
 			</div>
 
-			<h3>Hit the button to start</h3>
-			<p>This is a CPU-intensive process. It might take a while.</p>
-			<input type="submit" value="Let's go!" />
+			<br style="clear: left;"><br>
+			<input type="submit" value="Попробовать!" />
 		</form>
 
 		<section id="output">
