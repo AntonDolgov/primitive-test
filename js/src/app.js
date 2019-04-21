@@ -75,7 +75,6 @@ function onSubmit(e) {
 }
 
 function init() {
-	nodes.output.style.display = "none";
 	nodes.types.forEach(input => input.addEventListener("click", syncType));
 	ui.init();
 	syncType();
