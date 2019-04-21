@@ -187,7 +187,7 @@ class Canvas {
 			defs.appendChild(cp);
 			cp.setAttribute("id", "clip");
 			cp.setAttribute("clipPathUnits", "objectBoundingBox");
-			
+
 			let rect = svgRect(cfg.width, cfg.height);
 			cp.appendChild(rect);
 
@@ -202,14 +202,10 @@ class Canvas {
 	}
 
 	static original(url, cfg) {
-		if (url == "test") {
-			return Promise.resolve(this.test(cfg));
-		}
-
 		return new Promise(resolve => {
 			let img = new Image();
-			img.crossOrigin = true;
-			img.src = url;
+			img.crossOrigin = "Anonymous";
+			img.src = 'photo.jpg';
 			img.onload = e => {
 				let w = img.naturalWidth;
 				let h = img.naturalHeight;
@@ -335,7 +331,7 @@ class Shape {
 	toSVG() {}
 
 	/* get a new smaller canvas with this shape */
-	rasterize(alpha) { 
+	rasterize(alpha) {
 		let canvas = new Canvas(this.bbox.width, this.bbox.height);
 		let ctx = canvas.ctx;
 		ctx.fillStyle = "#000";
@@ -673,7 +669,7 @@ function getConfig() {
 	let fillFields = Array.from(form.querySelectorAll(`[name=${fillField}]`));
 	fillFields.forEach(input => {
 		if (!input.checked) { return; }
-		
+
 		switch (input.value) {
 			case "auto": cfg.fill = "auto"; break;
 			case "fixed": cfg.fill = form.querySelector("[name='fill-color']").value; break;
@@ -698,7 +694,7 @@ class Step {
 		this.shape = shape;
 		this.cfg = cfg;
 		this.alpha = cfg.alpha;
-		
+
 		/* these two are computed during the .compute() call */
 		this.color = "#000";
 		this.distance = Infinity;
@@ -833,7 +829,7 @@ class Optimizer {
 				} else { /* failure */
 					failedAttempts++;
 				}
-				
+
 				tryMutation();
 			});
 		};
